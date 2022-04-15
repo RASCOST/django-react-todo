@@ -1,0 +1,39 @@
+.color-white {
+  color: white;
+}
+
+.color-tan {
+  color: #bead9a;
+}
+
+.color-black {
+  color: black;
+}
+
+.bc-color-blueviolet {
+  background-color: #6000ff;
+}
+
+.bc-color-white {
+  background-color: white;
+}
+
+.bc-color-darkeslategray {
+  background-color: #2e2d38;
+}
+
+.upper-case {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.border-radius {
+  border-radius: 5px;
+}
+
+.border {
+  border: 1px solid black;
+}

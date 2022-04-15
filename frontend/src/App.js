@@ -44,13 +44,13 @@ function App() {
     return (
       <div>
         <span
-          className=''
+          className={viewCompleted ? 'border border-radius color-tan bc-color-white' : 'border border-radius color-tan bc-color-darkeslategray'}
           onClick={() => displayCompleted(true)}
         >
           Complete
         </span>
         <span
-          className=''
+          className={!viewCompleted ? 'border border-radius color-tan bc-color-white' : 'border border-radius color-tan bc-color-darkeslategray'}
           onClick={() => displayCompleted(false)}
         >
           Incomplete
@@ -89,10 +89,10 @@ function App() {
     ))
   }
   return (
-    <main className=''>
-      <h1 className=''>Todo App</h1>
-      <div>
-        <button>
+    <main className='app-container'>
+      <h1 className='color-white upper-case text-center'>Todo App</h1>
+      <div className='app-list bc-color-white'>
+        <button className='bc-color-blueviolet border-radius color-white'>
           Add task
         </button>
         {renderTabList()}
