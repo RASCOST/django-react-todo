@@ -37,3 +37,29 @@
 .border {
   border: 1px solid black;
 }
+
+.margin-top {
+  margin-top: 2rem;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
+}
+
+.card {
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.tab-bar {
+  margin: 1rem 0;
+}
+
+.tab-bar :first-child {
+  margin-right: 0.5rem;
+}
+
+.tab-bar span {
+  padding: 5px;
+}

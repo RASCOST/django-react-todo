@@ -42,7 +42,7 @@ function App() {
 
   const renderTabList = () => {
     return (
-      <div>
+      <div className='tab-bar'>
         <span
           className={viewCompleted ? 'border border-radius color-tan bc-color-white' : 'border border-radius color-tan bc-color-darkeslategray'}
           onClick={() => displayCompleted(true)}
@@ -90,8 +90,8 @@ function App() {
   }
   return (
     <main className='app-container'>
-      <h1 className='color-white upper-case text-center'>Todo App</h1>
-      <div className='app-list bc-color-white'>
+      <h1 className='color-white upper-case text-center margin-top'>Todo App</h1>
+      <div className='card bc-color-white'>
         <button className='bc-color-blueviolet border-radius color-white'>
           Add task
         </button>
