@@ -65,7 +65,7 @@ function App() {
     return newItems.map(item => (
       <li
         key={item.id}
-        className=''
+        className='list-item'
       >
         <span
           className=''
@@ -75,12 +75,12 @@ function App() {
         </span>
         <span>
           <button
-            className=''
+            className='bc-color-dimgray color-white padding border-radius'
           >
             Edit
           </button>
           <button
-            className=''
+            className='margin-left padding border-radius color-white bc-color-crimson'
           >
             Delete
           </button>
@@ -92,7 +92,7 @@ function App() {
     <main className='app-container'>
       <h1 className='color-white upper-case text-center margin-top'>Todo App</h1>
       <div className='card bc-color-white'>
-        <button className='bc-color-blueviolet border-radius color-white'>
+        <button className='bc-color-blueviolet border-radius color-white padding margin-bottom'>
           Add task
         </button>
         {renderTabList()}

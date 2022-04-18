@@ -6,3 +6,15 @@
   background-color: #2e2d38;
   position: absolute;
 }
+
+.app-container ul {
+  list-style: none;
+}
+
+.list-item {
+  border-top: 1px solid #bead9a;
+  display: flex;
+  justify-content: space-between;
+  color: #bead9a;
+  padding: 0.5rem 0;
+}
