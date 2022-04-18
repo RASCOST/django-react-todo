@@ -1,6 +1,8 @@
 import './App.css'
 import { useState } from "react"
 
+import Modal from './components/Modal';
+
 const todoItems = [
   {
     id: 1,
@@ -100,6 +102,7 @@ function App() {
           {renderItems()}
         </ul>
       </div>
+      <Modal />
     </main>
   )
 }
