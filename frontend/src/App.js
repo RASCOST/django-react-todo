@@ -33,6 +33,36 @@ const todoItems = [
 function App() {
   const [viewCompleted, setViewCompleted] = useState(false)
   const [todoList, setTodoList] = useState(todoItems)
+  const [modal, setModal] = useState(false)
+  const [activeItem, setActiveItem] = useState({
+    title: "",
+    description: "",
+    completed: false
+  })
+
+  const toggle = () => {
+    setModal(!modal)
+  }
+
+  const handleSubmit = item => {
+    toggle()
+    alert("save" + JSON.stringify(item))
+  }
+
+  const createItem = () => {
+    const item = {
+      title: "",
+      description: "",
+      completed: false
+    }
+
+    setActiveItem(item)
+    setModal(!modal)
+  }
+
+  const editItem = item => {
+    setActiveItem(item)
+  }
 
   const displayCompleted = status => {
     if (status) {
