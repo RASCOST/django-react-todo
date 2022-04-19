@@ -1,17 +1,23 @@
+import '../utilities.css'
 import './modal.css'
 
 const Modal = ({activateItem, toggle, handleSubmit}) => {
   return (
-    <div className="modal">
-      <h2>Todo Item</h2>
-      <span>✖</span>
-      <label>Title</label>
-      <input value='title' />
-      <label>Description</label>
-      <input value='description' />
-      <input type='checkbox' value='completed' />
-      <input type='submit' value='Save' />
-    </div>
+    <section className="modal">
+      <div className='modal-header '>
+        <h2>Todo Item</h2>
+        <span>✖</span>
+      </div>
+      <div className='padding-top'>
+        <label>Title</label><br/>
+        <input className='width margin-y padding' value='title' /><br/>
+        <label>Description</label><br/>
+        <input className='width margin-y padding' value='description' /><br/>
+        <input className='margin-right' type='checkbox' />
+        <label>Completed</label>
+      </div>
+      <input className='modal-btn bc-color-limegreen color-white padding border-radius' type='submit' value='Save' />
+    </section>
   )
 }
 

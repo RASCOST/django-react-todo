@@ -30,6 +30,10 @@
   background-color: #da003a;
 }
 
+.bc-color-limegreen {
+  background-color: #00bf38;
+}
+
 .upper-case {
   text-transform: uppercase;
 }
@@ -54,14 +58,29 @@
   margin-bottom: 2rem;
 }
 
+.margin-y {
+  margin: 0.5rem 0;
+}
+
 .margin-left {
   margin-left: 0.5rem;
+}
+
+.margin-right {
+  margin-right: 0.5rem;
 }
 
 .padding {
   padding: 0.25rem;
 }
 
+.padding-top {
+  padding-top: 1rem;
+}
+
+.padding-y {
+  padding: 2rem 0;
+}
 .card {
   width: 50%;
   margin: 0 auto;
@@ -78,4 +97,12 @@
 
 .tab-bar span {
   padding: 5px;
+}
+
+.width {
+  width: 100%;
+}
+
+.font-size {
+  font-size: 1.25rem;
 }
