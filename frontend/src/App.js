@@ -49,6 +49,10 @@ function App() {
     alert("save" + JSON.stringify(item))
   }
 
+  const handleDelete = item => {
+    alert("delete" + JSON.stringify(item))
+  }
+
   const createItem = () => {
     const item = {
       title: "",
@@ -62,6 +66,7 @@ function App() {
 
   const editItem = item => {
     setActiveItem(item)
+    setModal(!modal)
   }
 
   const displayCompleted = status => {
@@ -108,11 +113,13 @@ function App() {
         <span>
           <button
             className='bc-color-dimgray color-white padding border-radius'
+            onClick={() => editItem(item)}
           >
             Edit
           </button>
           <button
             className='margin-left padding border-radius color-white bc-color-crimson'
+            onClick={() => handleDelete(item)}
           >
             Delete
           </button>
@@ -124,7 +131,10 @@ function App() {
     <main className='app-container'>
       <h1 className='color-white upper-case text-center margin-top'>Todo App</h1>
       <div className='card bc-color-white'>
-        <button className='bc-color-blueviolet border-radius color-white padding margin-bottom'>
+        <button
+          className='bc-color-blueviolet border-radius color-white padding margin-bottom'
+          onClick={createItem}
+        >
           Add task
         </button>
         {renderTabList()}
@@ -132,7 +142,13 @@ function App() {
           {renderItems()}
         </ul>
       </div>
-      <Modal />
+      {modal ? (
+        <Modal
+          activateItem={activeItem}
+          toggle={toggle}
+          handleSubmit={handleSubmit}
+        />
+      ) : null}
     </main>
   )
 }

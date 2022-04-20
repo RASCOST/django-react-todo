@@ -1,7 +1,7 @@
 import '../utilities.css'
 import './modal.css'
 
-const Modal = ({activateItem, toggle, handleSubmit}) => {
+const Modal = ({activeItem, toggle, handleSubmit}) => {
   return (
     <section className="modal">
       <div className='modal-header '>
@@ -10,13 +10,24 @@ const Modal = ({activateItem, toggle, handleSubmit}) => {
       </div>
       <div className='padding-top'>
         <label>Title</label><br/>
-        <input className='width margin-y padding' value='title' /><br/>
+        <input className='width margin-y padding' value={activeItem.title} /><br/>
         <label>Description</label><br/>
-        <input className='width margin-y padding' value='description' /><br/>
-        <input className='margin-right' type='checkbox' />
+        <input className='width margin-y padding' value={activeItem.description} /><br/>
+        <input
+          className='margin-right'
+          type='checkbox'
+          checked={activeItem.complete ? true : false}/>
         <label>Completed</label>
       </div>
-      <input className='modal-btn bc-color-limegreen color-white padding border-radius' type='submit' value='Save' />
+      <input
+        className='modal-btn bc-color-limegreen color-white padding border-radius'
+        type='submit'
+        value='Save'
+        onClick={() => {
+          handleSubmit()
+          toggle()
+        }}
+      />
     </section>
   )
 }
