@@ -1,7 +1,17 @@
 import '../utilities.css'
 import './modal.css'
 
+import { useState } from "react"
+
 const Modal = ({activeItem, toggle, handleSubmit}) => {
+  const [title, setTitle] = useState('')
+  const [description, setDescription] = useState('')
+  const [complete, setComplete] = useState(false)
+
+  const handleChangeTitle = evt => {
+    setTitle(evt.target.value)
+  }
+
   return (
     <section className="modal">
       <div className='modal-header '>
@@ -10,7 +20,11 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
       </div>
       <div className='padding-top'>
         <label>Title</label><br/>
-        <input className='width margin-y padding' value={activeItem.title} /><br/>
+        <input
+          className='width margin-y padding'
+          value={activeItem.title ? activeItem.title : title}
+          onChange={evt => handleChangeTitle(evt)}
+        /><br/>
         <label>Description</label><br/>
         <input className='width margin-y padding' value={activeItem.description} /><br/>
         <input
