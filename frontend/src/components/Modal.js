@@ -14,11 +14,11 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
 
   const handleChangeComplete = evt => setComplete(evt.target.checked)
 
-  
+  return (
     <section className="modal">
       <div className='modal-header '>
         <h2>Todo Item</h2>
-        <span>✖</span>
+        <span onClick={toggle}>✖</span>
       </div>
       <div className='padding-top'>
         <label>Title</label><br/>
