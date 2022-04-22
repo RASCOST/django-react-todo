@@ -1,5 +1,5 @@
 import './App.css'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from 'axios'
 
 import Modal from './components/Modal';
@@ -14,13 +14,30 @@ function App() {
     completed: false
   })
 
+  const refreshList = () => {
+    axios.get('/api/todos')
+      .then(res => setTodoList(res.data))
+      .catch(err => console.log(err))
+  }
+
+  useEffect(() => refreshList(), [])
+
   const toggle = () => {
     setModal(!modal)
   }
 
   const handleSubmit = item => {
     toggle()
-    alert("save" + JSON.stringify(item))
+
+    if (item.id) {
+      axios.put(`/api/todos/${item.id}`, item)
+        .then(res => refreshList())
+
+      return
+    }
+
+    axios.post(`/api/todos/`, item)
+      .then(res => refreshList())
   }
 
   const handleDelete = item => {
@@ -118,7 +135,7 @@ function App() {
       </div>
       {modal ? (
         <Modal
-          activateItem={activeItem}
+          activeItem={activeItem}
           toggle={toggle}
           handleSubmit={handleSubmit}
         />
