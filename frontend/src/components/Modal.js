@@ -8,11 +8,13 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
   const [description, setDescription] = useState('')
   const [complete, setComplete] = useState(false)
 
-  const handleChangeTitle = evt => {
-    setTitle(evt.target.value)
-  }
+  const handleChangeTitle = evt => setTitle(evt.target.value)
 
-  return (
+  const handleChangeDescription = evt => setDescription(evt.target.value)
+
+  const handleChangeComplete = evt => setComplete(evt.target.checked)
+
+  
     <section className="modal">
       <div className='modal-header '>
         <h2>Todo Item</h2>
@@ -26,11 +28,16 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
           onChange={evt => handleChangeTitle(evt)}
         /><br/>
         <label>Description</label><br/>
-        <input className='width margin-y padding' value={activeItem.description} /><br/>
+        <input
+          className='width margin-y padding'
+          value={activeItem.description ? activeItem.description : description}
+          onChange={evt => handleChangeDescription(evt)}
+        /><br/>
         <input
           className='margin-right'
           type='checkbox'
-          checked={activeItem.complete ? true : false}/>
+          checked={activeItem.complete ? activeItem.complete : complete}
+          onChange={evt => handleChangeComplete(evt)}/>
         <label>Completed</label>
       </div>
       <input
