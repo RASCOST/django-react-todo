@@ -41,7 +41,8 @@ function App() {
   }
 
   const handleDelete = item => {
-    alert("delete" + JSON.stringify(item))
+    axios.delete(`/api/todos/${item.id}`)
+      .then(res => refreshList())
   }
 
   const createItem = () => {
