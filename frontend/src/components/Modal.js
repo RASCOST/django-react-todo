@@ -45,6 +45,9 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
         type='submit'
         value='Save'
         onClick={() => {
+          activeItem.title = title
+          activeItem.description = description
+          activeItem.complete = complete
           handleSubmit()
           toggle()
         }}
