@@ -18,3 +18,7 @@
   color: #bead9a;
   padding: 0.5rem 0;
 }
+
+.list-item button:hover {
+  padding: 5px;
+}

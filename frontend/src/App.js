@@ -104,13 +104,13 @@ function App() {
         </span>
         <span>
           <button
-            className='bc-color-dimgray color-white padding border-radius'
+            className='bc-color-dimgray color-white padding border-radius cursor-pointer'
             onClick={() => editItem(item)}
           >
             Edit
           </button>
           <button
-            className='margin-left padding border-radius color-white bc-color-crimson'
+            className='margin-left padding border-radius color-white bc-color-crimson cursor-pointer'
             onClick={() => handleDelete(item)}
           >
             Delete
