@@ -73,13 +73,13 @@ function App() {
     return (
       <div className='tab-bar'>
         <span
-          className={viewCompleted ? 'border border-radius color-tan bc-color-white' : 'border border-radius color-tan bc-color-darkeslategray'}
+          className={viewCompleted ? 'border border-radius color-tan bc-color-darkeslategray' : 'border border-radius color-tan bc-color-white'}
           onClick={() => displayCompleted(true)}
         >
           Complete
         </span>
         <span
-          className={!viewCompleted ? 'border border-radius color-tan bc-color-white' : 'border border-radius color-tan bc-color-darkeslategray'}
+          className={!viewCompleted ?  'border border-radius color-tan bc-color-darkeslategray' : 'border border-radius color-tan bc-color-white'}
           onClick={() => displayCompleted(false)}
         >
           Incomplete
@@ -89,7 +89,7 @@ function App() {
   }
 
   const renderItems = () => {
-    const newItems = todoList.filter(item => item.completed = viewCompleted)
+    const newItems = todoList.filter(item => item.completed === viewCompleted)
 
     return newItems.map(item => (
       <li
