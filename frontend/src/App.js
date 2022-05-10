@@ -32,12 +32,14 @@ function App() {
     if (item.id) {
       axios.put(`/api/todos/${item.id}`, item)
         .then(res => refreshList())
+        .catch(error => console.log(error))
 
       return
     }
 
     axios.post(`/api/todos/`, item)
       .then(res => refreshList())
+      .catch( error => console.log(error))
   }
 
   const handleDelete = item => {

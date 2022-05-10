@@ -6,13 +6,13 @@ import { useState } from "react"
 const Modal = ({activeItem, toggle, handleSubmit}) => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
-  const [complete, setComplete] = useState(false)
+  const [completed, setCompleted] = useState(false)
 
   const handleChangeTitle = evt => setTitle(evt.target.value)
 
   const handleChangeDescription = evt => setDescription(evt.target.value)
 
-  const handleChangeComplete = evt => setComplete(evt.target.checked)
+  const handleChangeCompleted = evt => setCompleted(evt.target.checked)
 
   return (
     <section className="modal-container">
@@ -37,8 +37,8 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
           <input
             className='margin-right'
             type='checkbox'
-            checked={activeItem.complete ? activeItem.complete : complete}
-            onChange={evt => handleChangeComplete(evt)}/>
+            checked={activeItem.completed ? activeItem.completed : completed}
+            onChange={evt => handleChangeCompleted(evt)}/>
           <label>Completed</label>
         </div>
         <input
@@ -48,8 +48,8 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
           onClick={() => {
             activeItem.title = title
             activeItem.description = description
-            activeItem.complete = complete
-            handleSubmit()
+            activeItem.completed = completed
+            handleSubmit(activeItem)
             toggle()
           }}
         />
