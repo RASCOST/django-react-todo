@@ -30,7 +30,8 @@ function App() {
     toggle()
 
     if (item.id) {
-      axios.put(`/api/todos/${item.id}`, item)
+      console.log(item);
+      axios.put(`/api/todos/${item.id}/`, item)
         .then(res => refreshList())
         .catch(error => console.log(error))
 
@@ -45,6 +46,7 @@ function App() {
   const handleDelete = item => {
     axios.delete(`/api/todos/${item.id}`)
       .then(res => refreshList())
+      .catch(error => console.log(error))
   }
 
   const createItem = () => {

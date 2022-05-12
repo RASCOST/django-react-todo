@@ -4,9 +4,9 @@ import './modal.css'
 import { useState } from "react"
 
 const Modal = ({activeItem, toggle, handleSubmit}) => {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [completed, setCompleted] = useState(false)
+  const [title, setTitle] = useState(activeItem.title)
+  const [description, setDescription] = useState(activeItem.description)
+  const [completed, setCompleted] = useState(activeItem.completed)
 
   const handleChangeTitle = evt => setTitle(evt.target.value)
 
@@ -25,19 +25,19 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
           <label>Title</label><br/>
           <input
             className='width margin-y padding'
-            value={activeItem.title ? activeItem.title : title}
+            value={title}
             onChange={evt => handleChangeTitle(evt)}
           /><br/>
           <label>Description</label><br/>
           <input
             className='width margin-y padding'
-            value={activeItem.description ? activeItem.description : description}
+            value={description}
             onChange={evt => handleChangeDescription(evt)}
           /><br/>
           <input
             className='margin-right'
             type='checkbox'
-            checked={activeItem.completed ? activeItem.completed : completed}
+            checked={completed}
             onChange={evt => handleChangeCompleted(evt)}/>
           <label>Completed</label>
         </div>
