@@ -4,15 +4,17 @@ import './modal.css'
 import { useState } from "react"
 
 const Modal = ({activeItem, toggle, handleSubmit}) => {
-  const [title, setTitle] = useState(activeItem.title)
-  const [description, setDescription] = useState(activeItem.description)
-  const [completed, setCompleted] = useState(activeItem.completed)
+  const [item, setItem] = useState(activeItem)
 
-  const handleChangeTitle = evt => setTitle(evt.target.value)
+  const handleChange = evt => {
+    let {name, value} = evt.target
 
-  const handleChangeDescription = evt => setDescription(evt.target.value)
+    if (evt.target.type === 'cheked') {
+      value = evt.target.checked
+    }
 
-  const handleChangeCompleted = evt => setCompleted(evt.target.checked)
+    setItem({...item, [name]: value})
+  }
 
   return (
     <section className="modal-container">
@@ -25,20 +27,23 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
           <label>Title</label><br/>
           <input
             className='width margin-y padding'
-            value={title}
-            onChange={evt => handleChangeTitle(evt)}
+            name='title'
+            value={item.title}
+            onChange={evt => handleChange(evt)}
           /><br/>
           <label>Description</label><br/>
           <input
             className='width margin-y padding'
-            value={description}
-            onChange={evt => handleChangeDescription(evt)}
+            name='description'
+            value={item.description}
+            onChange={evt => handleChange(evt)}
           /><br/>
           <input
             className='margin-right'
+            name='completed'
             type='checkbox'
-            checked={completed}
-            onChange={evt => handleChangeCompleted(evt)}/>
+            checked={item.completed}
+            onChange={evt => handleChange(evt)}/>
           <label>Completed</label>
         </div>
         <input
@@ -46,9 +51,9 @@ const Modal = ({activeItem, toggle, handleSubmit}) => {
           type='submit'
           value='Save'
           onClick={() => {
-            activeItem.title = title
-            activeItem.description = description
-            activeItem.completed = completed
+            activeItem.title = item.title
+            activeItem.description = item.description
+            activeItem.completed = item.completed
             handleSubmit(activeItem)
             toggle()
           }}
